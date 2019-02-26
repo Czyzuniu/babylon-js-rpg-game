@@ -31,6 +31,7 @@
     "babylonjs": "^3.2.0-rc.2",
     "babylonjs-gui": "^3.2.0-rc.3",
     "babylonjs-loaders": "^3.2.0-rc.3",
-    "babylonjs-materials": "^3.2.0-rc.3"
+    "babylonjs-materials": "^3.2.0-rc.3",
+    "cannon": "^0.6.2"
   }
 }

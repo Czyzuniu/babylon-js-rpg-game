@@ -37,12 +37,7 @@ module.exports =  {
       template: 'index.html'
     }),
     new LiveReloadPlugin()
-  ],
-  externals: {
-    oimo: 'OIMO', //or true
-    cannon: 'CANNON', //or true
-    earcut: 'EARCUT'
-  }
+  ]
 };
 
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");

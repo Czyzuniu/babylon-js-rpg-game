@@ -1,7 +1,7 @@
 //Uncomment to use the es6 class
-// import Game from './Game.js';
+import Game from './Game.js';
 //Comment the following line if you uncomment the line above
-import Game from './Game.ts';
+//import Game from './Game.ts';
 
 window.addEventListener('DOMContentLoaded', () => {
   // Create the game using the 'renderCanvas'.

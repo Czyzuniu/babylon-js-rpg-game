@@ -1,42 +1,138 @@
+import CANNON from 'cannon';
 import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
 import * as GUI from 'babylonjs-gui';
+import Player from './Player.js'
 
 export default class Game {
-  constructor( canvasId ){
-    this.canvas = document.getElementById( canvasId );
-    this.engine = new BABYLON.Engine( this.canvas, true );
+  constructor( canvasId ) {
+    this.canvas = document.getElementById(canvasId);
+    this.engine = new BABYLON.Engine(this.canvas, true);
     this.scene = {};
     this.camera = {};
     this.light = {};
+    this.player = new Player()
+    this.map = {} //controls map
+    this.loaded = false
   }
 
   createScene() {
     // Create a basic BJS Scene object.
     this.scene = new BABYLON.Scene(this.engine);
-    // Create a FreeCamera, and set its position to (x:0, y:5, z:-10).
-    this.camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 5,-10), this.scene);
-    // Target the camera to scene origin.
-    this.camera.setTarget(BABYLON.Vector3.Zero());
-    // Attach the camera to the canvas.
-    this.camera.attachControl(this.canvas, false);
-    // Create a basic light, aiming 0,1,0 - meaning, to the sky.
+    //this.scene.enablePhysics();
+   // Create a FreeCamera, and set its position to (x:0, y:5, z:-10).
+
+    // var camera = new BABYLON.FreeCamera("FreeCamera", new BABYLON.Vector3(0, 200, -20), this.scene);
+    // camera.attachControl(this.canvas, true);
+
+    var light0 = new BABYLON.DirectionalLight("Omni", new BABYLON.Vector3(-2, -5, 2), this.scene);
+
+    //Create a basic light, aiming 0,1,0 - meaning, to the sky.
     this.light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), this.scene);
-    // Create a built-in "sphere" shape; with 16 segments and diameter of 2.
-    let sphere = BABYLON.MeshBuilder.CreateSphere('sphere',
-                                {segments: 16, diameter: 2}, this.scene);
-    // Move the sphere upward 1/2 of its height.
-    sphere.position.y = 1;
-    // Create a built-in "ground" shape.
-    let ground = BABYLON.MeshBuilder.CreateGround('ground',
-                                {width: 6, height: 6, subdivisions: 2}, this.scene);
+
+    this.scene.actionManager = new BABYLON.ActionManager(this.scene);
+
+    this.scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnKeyDownTrigger,  (evt) => {
+      this.map[evt.sourceEvent.key] = evt.sourceEvent.type == "keydown";
+    }));
+
+    this.scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnKeyUpTrigger,  (evt) => {
+      this.map[evt.sourceEvent.key] = evt.sourceEvent.type == "keydown";
+    }));
+
+    BABYLON.SceneLoader.ImportMesh(null, "/public/models/","world.obj", this.scene, (newMeshes, particleSystems, skeletons) => {
+      newMeshes.map((mesh) => {
+        console.log(mesh.name)
+        if (mesh.name == 'terrain_Landscape.003') {
+         // mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0, restitution: 0.9, friction:0.1 }, this.scene);
+          mesh.checkCollisions = true;
+        }
+      })
+    })
+
+
+
+    var camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0,0,0), this.scene);
+
+// The goal distance of camera from target
+    camera.radius = 170;
+
+// The goal height of camera above local origin (centre) of target
+    camera.heightOffset = 5;
+
+// The goal rotation of camera around local origin (centre) of target in x y plane
+    camera.rotationOffset = 0;
+
+
+// The speed at which acceleration is halted
+    camera.maxCameraSpeed = 10
+
+// This attaches the camera to the canvas
+    camera.attachControl(this.canvas, true);
+
+
+
+
+
+
+    this.player.render(this.scene).then((mesh) => {
+      console.log('player added')
+      mesh.showBoundingBox = true;
+      camera.lockedTarget = this.player.mesh;
+      this.loaded = true
+    })
+
+    this.scene.gravity = new BABYLON.Vector3(0, -0.9, 0);
+    this.scene.collisionsEnabled = true;
+    //6let music = new BABYLON.Sound("Music", "/public/sounds/nature_theme1.mp3", this.scene, null, { loop: true, autoplay: true });
+
+
+      this.scene.registerAfterRender( () => {
+        //let directionVector = direction.subtract(this.player.mesh.position);
+
+        if (this.player.mesh) {
+          if ((this.map["w"] || this.map["W"])) {
+
+            var rotation = this.player.mesh.rotation;
+            if(this.player.mesh.rotationQuaternion){
+              rotation = this.player.mesh.rotationQuaternion.toEulerAngles();
+            }
+            rotation.negate();
+            var forwards = new BABYLON.Vector3(-parseFloat(Math.sin(rotation.y)) / 1, 0, -parseFloat(Math.cos(rotation.y)) / 1);
+            this.player.mesh.moveWithCollisions(forwards)
+            //this.player.mesh.translate(new BABYLON.Vector3(0, 0, -1), 2, BABYLON.Space.LOCAL);
+            // this.player.mesh.position.z += speed
+          }
+          if ((this.map[" "])) {
+            console.log(this.player.mesh.position)
+            this.player.mesh.position.y -= -1
+          };
+          if ((this.map["s"] || this.map["s"])) {
+            //this.player.mesh.physicsImpostor.setLinearVelocity(new BABYLON.Vector3(0,0,5))
+            //this.player.mesh.moveWithCollisions(new BABYLON.Vector3(0, 0, 10))
+          };
+          if ((this.map["d"] || this.map["D"])) {
+            this.player.mesh.rotate(BABYLON.Axis.Y,0.01, BABYLON.Space.WORLD);
+          };
+
+          if ((this.map["a"] || this.map["A"])) {
+            this.player.mesh.rotate(BABYLON.Axis.Y,-0.01, BABYLON.Space.WORLD);
+          };
+
+          this.player.mesh.moveWithCollisions( new BABYLON.Vector3(0, -0.4, 0));
+
+        }
+      });
   }
 
+
   doRender() {
-    
+
     // Run the render loop.
     this.engine.runRenderLoop(() => {
-      this.scene.render();
+      if(this.loaded) {
+        this.scene.render();
+      }
     });
 
     // The canvas/window resize event handler.

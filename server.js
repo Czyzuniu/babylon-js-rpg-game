@@ -5,8 +5,12 @@ const router = express.Router();
 const fs = require('fs');
 
 app.use(express.static(`${__dirname}/dist`));
+app.use('/public',express.static(path.join(__dirname, 'public')));
+///app.use('/cannon', express.static(__dirname + './node_modules/cannon/build/'));
 
 app.use('/', router);
+
+
 
 router.get('*', (req, res, next) => {
   // uncomment the line below to see the file requests on the console
