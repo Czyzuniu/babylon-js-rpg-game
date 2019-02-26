@@ -23,12 +23,12 @@ export default class Player {
   render(scene) {
 
     return new Promise((res) => {
-      BABYLON.SceneLoader.ImportMesh(null, "/public/models/","lumberJack.obj", scene, (newMeshes, particleSystems, skeletons) => {
+      BABYLON.SceneLoader.ImportMesh(null, "/public/models/","Player1.stl", scene, (newMeshes, particleSystems, skeletons) => {
         // this.model = newMeshes[0]
         // this.mesh = BABYLON.MeshBuilder.CreateBox("box", {height: 10, width:5, depth:5}, scene);
         // this.mesh.addChild(this.model);
 
-
+        console.log(newMeshes)
         this.mesh = newMeshes[0]
         this.mesh.ellipsoid = new BABYLON.Vector3(5, 20, 5);
 
@@ -48,5 +48,19 @@ export default class Player {
     })
 
   }
+
+  // render(scene) {
+  //   return new Promise((res) => {
+  //     BABYLON.SceneLoader.ImportMesh(null, "/public/models/", "Player.gltf", scene, function (meshes, particleSystems, skeletons) {
+  //       this.mesh = meshes[0]
+  //       this.mesh.rotation.y = Math.PI;
+  //       this.mesh.position = new BABYLON.Vector3(0, 0, -80);
+  //
+  //       scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);
+  //     });
+  //   })
+  // gltf
+  // }
+
 
 }

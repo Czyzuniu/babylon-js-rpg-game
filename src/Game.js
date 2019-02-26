@@ -42,11 +42,7 @@ export default class Game {
 
     BABYLON.SceneLoader.ImportMesh(null, "/public/models/","world.obj", this.scene, (newMeshes, particleSystems, skeletons) => {
       newMeshes.map((mesh) => {
-        console.log(mesh.name)
-        if (mesh.name == 'terrain_Landscape.003') {
-         // mesh.physicsImpostor = new BABYLON.PhysicsImpostor(mesh, BABYLON.PhysicsImpostor.HeightmapImpostor, { mass: 0, restitution: 0.9, friction:0.1 }, this.scene);
-          mesh.checkCollisions = true;
-        }
+        mesh.checkCollisions = true;
       })
     })
 
@@ -70,21 +66,15 @@ export default class Game {
 // This attaches the camera to the canvas
     camera.attachControl(this.canvas, true);
 
-
-
-
-
-
     this.player.render(this.scene).then((mesh) => {
       console.log('player added')
-      mesh.showBoundingBox = true;
       camera.lockedTarget = this.player.mesh;
       this.loaded = true
     })
 
     this.scene.gravity = new BABYLON.Vector3(0, -0.9, 0);
     this.scene.collisionsEnabled = true;
-    //6let music = new BABYLON.Sound("Music", "/public/sounds/nature_theme1.mp3", this.scene, null, { loop: true, autoplay: true });
+    //let music = new BABYLON.Sound("Music", "/public/sounds/nature_theme1.mp3", this.scene, null, { loop: true, autoplay: true });
 
 
       this.scene.registerAfterRender( () => {
@@ -103,10 +93,10 @@ export default class Game {
             //this.player.mesh.translate(new BABYLON.Vector3(0, 0, -1), 2, BABYLON.Space.LOCAL);
             // this.player.mesh.position.z += speed
           }
-          if ((this.map[" "])) {
-            console.log(this.player.mesh.position)
-            this.player.mesh.position.y -= -1
-          };
+          // if ((this.map[" "])) {
+          //   console.log(this.player.mesh.position)
+          //   this.player.mesh.position.y -= -2
+          // };
           if ((this.map["s"] || this.map["s"])) {
             //this.player.mesh.physicsImpostor.setLinearVelocity(new BABYLON.Vector3(0,0,5))
             //this.player.mesh.moveWithCollisions(new BABYLON.Vector3(0, 0, 10))
