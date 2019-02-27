@@ -14,6 +14,7 @@ export default class Game {
     this.player = new Player()
     this.map = {} //controls map
     this.loaded = false
+    this.playerAnimations
   }
 
   createScene() {
@@ -51,10 +52,10 @@ export default class Game {
     var camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0,0,0), this.scene);
 
 // The goal distance of camera from target
-    camera.radius = 170;
+    camera.radius = 5;
 
 // The goal height of camera above local origin (centre) of target
-    camera.heightOffset = 5;
+    camera.heightOffset = -0.5;
 
 // The goal rotation of camera around local origin (centre) of target in x y plane
     camera.rotationOffset = 0;
@@ -66,10 +67,19 @@ export default class Game {
 // This attaches the camera to the canvas
     camera.attachControl(this.canvas, true);
 
-    this.player.render(this.scene).then((mesh) => {
-      console.log('player added')
-      camera.lockedTarget = this.player.mesh;
-      this.loaded = true
+    // this.player.render(this.scene).then((mesh) => {
+    //   console.log('player added')
+    //   camera.lockedTarget = this.player.mesh;
+    //   this.loaded = true
+    // })
+    //
+    BABYLON.SceneLoader.ImportMesh(null, "/public/models/male_adventurer/", "Scene.gltf", this.scene, (meshes, particleSystems, skeletons) => {
+          this.player.mesh = meshes[0]
+          //this.player.mesh.scaling.multiply(new BABYLON.Vector3(50, 50, 50))
+          this.player.mesh.position.y = 100
+          camera.lockedTarget = this.player.mesh;
+          this.playerAnimations = this.scene.animationGroups
+          this.getAnimationByName("idle").play(true)
     })
 
     this.scene.gravity = new BABYLON.Vector3(0, -0.9, 0);
@@ -90,8 +100,13 @@ export default class Game {
             rotation.negate();
             var forwards = new BABYLON.Vector3(-parseFloat(Math.sin(rotation.y)) / 1, 0, -parseFloat(Math.cos(rotation.y)) / 1);
             this.player.mesh.moveWithCollisions(forwards)
+
+            this.getAnimationByName("run").play(true)
+
             //this.player.mesh.translate(new BABYLON.Vector3(0, 0, -1), 2, BABYLON.Space.LOCAL);
             // this.player.mesh.position.z += speed
+          } else {
+            this.getAnimationByName("run").stop()
           }
           // if ((this.map[" "])) {
           //   console.log(this.player.mesh.position)
@@ -109,20 +124,29 @@ export default class Game {
             this.player.mesh.rotate(BABYLON.Axis.Y,-0.01, BABYLON.Space.WORLD);
           };
 
-          this.player.mesh.moveWithCollisions( new BABYLON.Vector3(0, -0.4, 0));
-
+          this.player.mesh.moveWithCollisions( new BABYLON.Vector3(0, -0.9, 0));
         }
       });
   }
 
+  getAnimationByName(name) {
+    console.log(name)
+    let animation = null
+    this.playerAnimations.forEach((anim) => {
+      if (anim.name === name) {
+        console.log(anim, 'tutaj')
+        animation = anim
+      }
+    })
+
+    return animation
+  }
 
   doRender() {
 
     // Run the render loop.
     this.engine.runRenderLoop(() => {
-      if(this.loaded) {
-        this.scene.render();
-      }
+      this.scene.render();
     });
 
     // The canvas/window resize event handler.
