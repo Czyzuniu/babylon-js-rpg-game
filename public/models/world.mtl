@@ -81,7 +81,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd grasslight-big.jpg.001.jpg
+map_Kd grasslight-big.jpg
 
 newmtl Trunk_001
 Ns 94.117647
