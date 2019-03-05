@@ -2,27 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7418a3f8-51f8-4deb-85a5-290628feb870" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/models/Player-complete-walk.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/Player-complete-walk.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/Player-complete-walk.glb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/Player-complete-walk.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/Player.gltf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/Player.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/Player1.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/Player1Color.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/WoodenCabinFbx.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/collada.dae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/dark_elf/scene.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/dark_elf/scene.gltf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/demo.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/grasslight-big.jpg.001.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/lumberJack.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/mountains2.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/mountains2.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world.dae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/public/models/world.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -38,56 +21,57 @@
     <session id="-1253205730">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="babylon" value="1" />
           <entry key="html" value="2" />
-          <entry key="js" value="8" />
+          <entry key="js" value="9" />
           <entry key="json" value="1" />
           <entry key="log" value="1" />
           <entry key="md" value="1" />
           <entry key="mtl" value="3" />
           <entry key="obj" value="2" />
           <entry key="png" value="2" />
-          <entry key="ts" value="3" />
+          <entry key="ts" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="2" />
           <entry key="Image" value="2" />
-          <entry key="JavaScript" value="8" />
+          <entry key="JavaScript" value="9" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="TypeScript" value="3" />
+          <entry key="TypeScript" value="5" />
           <entry key="tsconfig" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="2" />
+          <entry key="TypeScriptServerServiceImpl" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="13" />
-          <entry key="js" value="4456" />
+          <entry key="js" value="6485" />
           <entry key="mtl" value="2" />
           <entry key="obj" value="6" />
-          <entry key="ts" value="11" />
+          <entry key="ts" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="13" />
-          <entry key="JavaScript" value="4456" />
+          <entry key="JavaScript" value="6485" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="TypeScript" value="11" />
+          <entry key="TypeScript" value="15" />
         </counts>
       </usages-collector>
     </session>
@@ -124,17 +108,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="612">
+              <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/models/world.mtl">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Game.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+            <state relative-caret-position="289">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -157,11 +144,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="350">
+              <caret line="66" selection-start-line="66" selection-end-line="71" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/babylonjs/babylon.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="18544" column="8" selection-start-line="18544" selection-start-column="8" selection-end-line="18544" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="37" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -170,11 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>port</find>
-      <find>bundle</find>
-      <find>this.canvas</find>
-      <find>canvas</find>
-      <find>this.camera</find>
       <find>material</find>
       <find>setLInear</find>
       <find>PLAYER</find>
@@ -190,16 +193,21 @@
       <find>gra</find>
       <find>physicsImpostor</find>
       <find>cr</find>
-      <find>gravi</find>
       <find>this.loaded</find>
       <find>camera</find>
       <find>scene</find>
-      <find>gravity</find>
       <find>playerAnimations</find>
       <find>getAnimationByName</find>
       <find>player</find>
       <find>stop</find>
       <find>music</find>
+      <find>this.scene.gravity</find>
+      <find>gravity</find>
+      <find>mus</find>
+      <find>actionManager</find>
+      <find>anim</find>
+      <find>time</find>
+      <find>gravi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -208,7 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Game.ts" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/index.html" />
@@ -216,9 +223,11 @@
         <option value="$PROJECT_DIR$/public/models/mountains2.obj" />
         <option value="$PROJECT_DIR$/public/models/mountains2.mtl" />
         <option value="$PROJECT_DIR$/public/models/lumberJack.mtl" />
+        <option value="$PROJECT_DIR$/public/models/world.mtl" />
+        <option value="$PROJECT_DIR$/src/Game.ts" />
+        <option value="$PROJECT_DIR$/src/Utils.js" />
         <option value="$PROJECT_DIR$/src/Game.js" />
         <option value="$PROJECT_DIR$/src/Player.js" />
-        <option value="$PROJECT_DIR$/public/models/world.mtl" />
       </list>
     </option>
   </component>
@@ -265,26 +274,7 @@
             <path>
               <item name="babylon-game" type="b2602c69:ProjectViewProjectNode" />
               <item name="babylon-game" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="babylon-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="babylon-game" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="male_adventurer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="babylon-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="babylon-game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="babylon-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="babylon-game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Game.ts" type="620a8d5e:NestingTreeNode" />
             </path>
           </expand>
           <select />
@@ -324,11 +314,15 @@
       <updated>1550868882625</updated>
       <workItem from="1550868884133" duration="14218000" />
       <workItem from="1551205094738" duration="18039000" />
+      <workItem from="1551636385619" duration="1108000" />
+      <workItem from="1551637522762" duration="5948000" />
+      <workItem from="1551647212538" duration="1363000" />
+      <workItem from="1551662699757" duration="1077000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39193000" />
+    <option name="totallyTimeSpent" value="51275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -387,17 +381,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Player.js</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Game.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -420,13 +414,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/models/textures/lumberJack_normal.png" />
     <entry file="file://$PROJECT_DIR$/public/models/textures/lumberJack_diffuse.png" />
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/models/lumberJack.obj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -441,24 +428,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/babylonjs/babylon.d.ts">
+    <entry file="file://$PROJECT_DIR$/public/models/mountains2.mtl" />
+    <entry file="file://$PROJECT_DIR$/public/models/mountains2.obj" />
+    <entry file="file://$PROJECT_DIR$/public/models/Player-complete-walk.log" />
+    <entry file="file://$PROJECT_DIR$/public/models/male_adventurer/scene.babylon" />
+    <entry file="file://$PROJECT_DIR$/public/models/world.mtl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="18167" column="8" selection-start-line="18167" selection-start-column="8" selection-end-line="18167" selection-end-column="8" />
+        <state relative-caret-position="407">
+          <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/mountains2.mtl">
+    <entry file="file://$PROJECT_DIR$/src/Game.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/mountains2.obj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88706">
-          <caret line="5218" column="30" selection-start-line="5218" selection-start-column="30" selection-end-line="5218" selection-end-column="30" />
+        <state relative-caret-position="289">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -469,30 +456,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/Player-complete-walk.log">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/male_adventurer/scene.babylon">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/babylonjs/babylon.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="18544" column="8" selection-start-line="18544" selection-start-column="8" selection-end-line="18544" selection-end-column="8" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="612">
+          <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/world.mtl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+        <state relative-caret-position="350">
+          <caret line="66" selection-start-line="66" selection-end-line="71" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
