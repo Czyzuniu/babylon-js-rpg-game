@@ -10,16 +10,15 @@ export default class Player {
     this.scene.actionManager = new BABYLON.ActionManager(this.scene);
     this.scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnKeyDownTrigger,  (evt) => {
       this.controls[evt.sourceEvent.keyCode] = evt.sourceEvent.type === "keydown";
-      console.log(this.controls)
     }));
 
     this.scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnKeyUpTrigger,  (evt) => {
       this.controls[evt.sourceEvent.keyCode] = evt.sourceEvent.type === "keydown";
-      console.log(this.controls)
     }));
 
     this.moveSpeed = 1
     this.velocity = new BABYLON.Vector3(0,0,0)
+    this.prevTime = performance.now();
   }
 
   setAnimations(anims) {
@@ -30,11 +29,23 @@ export default class Player {
     if (this.mesh) {
 
 
+      let time = performance.now();
+      // Create a delta value based on current time
+      let delta = ( time - this.prevTime ) / 1000;
+
+      // Set the velocity.x and velocity.z using the calculated time delta
+      // this.velocity.x -= this.velocity.x * 10.0 * delta;
+      // this.velocity.z -= this.velocity.z * 10.0 * delta;
+      this.velocity.y += this.scene.gravity.y * delta;
+
+
       let rotation
       if (this.mesh.rotationQuaternion) {
         rotation = this.mesh.rotationQuaternion.toEulerAngles();
       }
         Utils.getAnimationByName('idle', this.animationGroups).play(true)
+
+
       if (this.controls["87"]) {
         this.mesh.moveWithCollisions(new BABYLON.Vector3(-parseFloat(Math.sin(rotation.y)) / this.moveSpeed, 0, -parseFloat(Math.cos(rotation.y)) / this.moveSpeed))
         Utils.getAnimationByName('run', this.animationGroups).play(true)
@@ -57,21 +68,19 @@ export default class Player {
       //
       if (!this.controls.inAir) {
         if (this.controls["32"]) {
-          this.mesh.moveWithCollisions(new BABYLON.Vector3(0, 40, 0))
-          Utils.getAnimationByName('air', this.animationGroups).play()
+           this.velocity.y = 100 * delta
+           Utils.getAnimationByName('air', this.animationGroups).play()
            this.controls.inAir = true
         }
       }
 
 
-      // console.log(this.mesh.position.y)
-      //
-      // if (this.mesh.position.y <= 13) {
-      //   this.controls.inAir = false
-      // }
+      console.log(this.velocity)
+
+      this.mesh.moveWithCollisions(this.velocity)
 
 
-      this.mesh.moveWithCollisions(this.scene.gravity)
+      this.prevTime = time;
     }
   }
 
@@ -92,6 +101,18 @@ export default class Player {
         // this.mesh.addChild(sphere)
         // sphere.material = material
         //if u want to draw ellipsoid to see it
+
+        this.mesh.onCollideObservable.add((me, collided) => {
+          if (collided) {
+            this.controls.inAir = false
+            this.velocity.y = -1
+            Utils.getAnimationByName('air', this.animationGroups).stop()
+          } else {
+            this.controls.inAir = true
+            Utils.getAnimationByName('air', this.animationGroups).play(true)
+          }
+        })
+
         res(this.mesh)
       })
     })
