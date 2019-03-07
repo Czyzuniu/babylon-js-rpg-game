@@ -2,12 +2,13 @@ import * as BABYLON from "babylonjs";
 
 
  class Utils {
-  constructor() {
-
+  constructor(scene) {
+    this.scene = scene
   }
 
 
-  getAnimationByName(name, animations) {
+  getAnimationByName(name) {
+    let animations = this.scene.animationGroups
     let animation = null
     animations.forEach((anim) => {
       if (anim.name === name) {
@@ -21,4 +22,4 @@ import * as BABYLON from "babylonjs";
 }
 
 
-export default new Utils()
+export default Utils
