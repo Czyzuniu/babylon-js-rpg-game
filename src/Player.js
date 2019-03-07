@@ -4,7 +4,7 @@ import Utils from "./Utils";
 export default class Player {
   constructor(scene) {
     this.controls = {
-      inAir:false
+      inAir:true
     }
     this.scene = scene
     this.scene.actionManager = new BABYLON.ActionManager(this.scene);
@@ -28,7 +28,6 @@ export default class Player {
   move() {
     if (this.mesh) {
 
-
       let time = performance.now();
       // Create a delta value based on current time
       let delta = ( time - this.prevTime ) / 1000;
@@ -43,7 +42,8 @@ export default class Player {
       if (this.mesh.rotationQuaternion) {
         rotation = this.mesh.rotationQuaternion.toEulerAngles();
       }
-        Utils.getAnimationByName('idle', this.animationGroups).play(true)
+
+      Utils.getAnimationByName('idle', this.animationGroups).play(true)
 
 
       if (this.controls["87"]) {
@@ -65,21 +65,17 @@ export default class Player {
         this.mesh.rotate(BABYLON.Axis.Y,-0.01, BABYLON.Space.WORLD)
       }
 
-      //
+      Utils.getAnimationByName('air', this.animationGroups).play(true)
+
       if (!this.controls.inAir) {
         if (this.controls["32"]) {
-           this.velocity.y = 100 * delta
-           Utils.getAnimationByName('air', this.animationGroups).play()
-           this.controls.inAir = true
+          console.log('should jump...')
+          this.velocity.y = 35 * delta
+          this.controls.inAir = true
         }
       }
 
-
-      console.log(this.velocity)
-
       this.mesh.moveWithCollisions(this.velocity)
-
-
       this.prevTime = time;
     }
   }
@@ -102,15 +98,10 @@ export default class Player {
         // sphere.material = material
         //if u want to draw ellipsoid to see it
 
-        this.mesh.onCollideObservable.add((me, collided) => {
-          if (collided) {
-            this.controls.inAir = false
-            this.velocity.y = -1
-            Utils.getAnimationByName('air', this.animationGroups).stop()
-          } else {
-            this.controls.inAir = true
-            Utils.getAnimationByName('air', this.animationGroups).play(true)
-          }
+        this.mesh.onCollideObservable.add(() => {
+          Utils.getAnimationByName('air', this.animationGroups).stop()
+          this.controls.inAir = false
+          this.velocity.y = -1
         })
 
         res(this.mesh)
