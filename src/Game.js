@@ -14,7 +14,9 @@ export default class Game {
     this.light = {};
     this.map = {} //controls map
     this.loaded = false
-    this.playerAnimations
+    this.GUIControls = {
+
+    }
   }
 
   createScene() {
@@ -23,17 +25,24 @@ export default class Game {
     this.player = new Player(this.scene)
     // var camera = new BABYLON.FreeCamera("FreeCamera", new BABYLON.Vector3(0, 200, -20), this.scene);
     // camera.attachControl(this.canvas, true);
-    const light0 = new BABYLON.DirectionalLight("Omni", new BABYLON.Vector3(-2, -5, 2), this.scene);
-    //Create a basic light, aiming 0,1,0 - meaning, to the sky.
+    const light0 = new BABYLON.DirectionalLight("Omni", new BABYLON.Vector3(-2, -10, 2), this.scene);
+    // //Create a basic light, aiming 0,1,0 - meaning, to the sky.
     this.light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), this.scene);
     this.scene.gravity = new BABYLON.Vector3(0,-0.98,0)
 
-    BABYLON.SceneLoader.ImportMesh(null, "/public/models/","world1.obj", this.scene, (newMeshes, particleSystems, skeletons) => {
+    BABYLON.SceneLoader.ImportMesh(null, "/public/models/World/","world3.obj", this.scene, (newMeshes, particleSystems, skeletons) => {
       newMeshes.map((mesh) => {
         mesh.checkCollisions = true;
-        mesh.showBoundingBox = true
+        // mesh.showBoundingBox = true
       })
     })
+
+
+    const options = new BABYLON.SceneOptimizerOptions();
+    options.addOptimization(new BABYLON.HardwareScalingOptimization(0, 1));
+
+    // Optimizer
+    const optimizer = new BABYLON.SceneOptimizer(this.scene, options);
 
     this.wolf = new Entity(this.scene, "/public/models/wolf/", "wolf.obj")
 
@@ -53,18 +62,18 @@ export default class Game {
     this.player.render(this.scene).then((mesh) => {
       console.log('player added')
       camera.lockedTarget = this.player.mesh;
+      this.initializeGui()
       this.loaded = true
     })
     this.scene.collisionsEnabled = true;
-    let music = new BABYLON.Sound("Music", "/public/sounds/nature_theme1.mp3", this.scene, null, { loop: true, autoplay: true });
+    //let music = new BABYLON.Sound("Music", "/public/sounds/nature_theme1.mp3", this.scene, null, { loop: true, autoplay: true });
 
     this.createSkyBox()
 
   }
 
-
   createSkyBox() {
-    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:1000.0}, this.scene);
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:10000.0}, this.scene);
     const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", this.scene);
     skyboxMaterial.backFaceCulling = false;
     skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/public/images/skyboxsun25deg/", this.scene);
@@ -74,11 +83,46 @@ export default class Game {
     skybox.material = skyboxMaterial;
   }
 
-  doRender() {
 
+  initializeGui() {
+    const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("gameUI");
+
+
+    const healthContainer = new BABYLON.GUI.Rectangle();
+    healthContainer.width = 0.2;
+    healthContainer.height = "40px";
+    healthContainer.cornerRadius = 20;
+    healthContainer.color = "black";
+    healthContainer.thickness = 1;
+    healthContainer.background = "red";
+    healthContainer.left = '-35%'
+    healthContainer.top = '-40%'
+
+    const healthPoints = new BABYLON.GUI.TextBlock();
+    healthPoints.text = `${this.player.getStat('hp').toString()} / 100`;
+    healthPoints.color = "white";
+    healthPoints.fontSize = 24;
+
+    this.GUIControls = {
+      'hp':healthPoints
+    }
+
+    healthContainer.addControl(healthPoints)
+    advancedTexture.addControl(healthContainer);
+  }
+
+    updateGui() {
+      if (this.loaded) {
+        this.GUIControls['hp'].text = `${this.player.getStat('hp').toString()} / 100`;
+      }
+    }
+
+
+    doRender() {
     // Run the render loop.
     this.engine.runRenderLoop(() => {
       this.player.move()
+      this.updateGui()
       this.scene.render();
     });
 
@@ -88,3 +132,36 @@ export default class Game {
     });
   }
 }
+
+
+var renderingZone = document.getElementById("renderCanvas");
+var isFullScreen = false;
+
+document.addEventListener("fullscreenchange", onFullScreenChange, false);
+document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
+document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
+document.addEventListener("msfullscreenchange", onFullScreenChange, false);
+
+function onFullScreenChange() {
+  if (document.fullscreen !== undefined) {
+    isFullScreen = document.fullscreen;
+  } else if (document.mozFullScreen !== undefined) {
+    isFullScreen = document.mozFullScreen;
+  } else if (document.webkitIsFullScreen !== undefined) {
+    isFullScreen = document.webkitIsFullScreen;
+  } else if (document.msIsFullScreen !== undefined) {
+    isFullScreen = document.msIsFullScreen;
+  }
+}
+
+function switchFullscreen() {
+  if (!isFullScreen) {
+    BABYLON.Tools.RequestFullscreen(renderingZone);
+  }
+  else {
+    BABYLON.Tools.ExitFullscreen();
+  }
+};
+
+
+

@@ -18,12 +18,19 @@ export default class Player {
       this.controls[evt.sourceEvent.keyCode] = evt.sourceEvent.type === "keydown";
     }));
 
-    this.moveSpeed = 5
+    this.moveSpeed = 10
     this.velocity = new BABYLON.Vector3(0,0,0)
     this.prevTime = performance.now();
 
 
     this.utils = new Utils(scene)
+
+
+    this.statistics = {
+      hp:100,
+      mana:100,
+      level:1
+    }
   }
 
   move() {
@@ -56,7 +63,6 @@ export default class Player {
         this.playAnimation('walk_back', true)
         this.controls.isMoving = true
       } else {
-
         this.utils.getAnimationByName('walk_back').stop()
       }
       if (this.controls["68"]) {
@@ -68,7 +74,8 @@ export default class Player {
 
       if (!this.controls.inAir) {
         if (this.controls["32"]) {
-          this.velocity.y = 13 * delta
+          this.velocity.y = 15 * delta
+          this.statistics.hp -= 5
           this.controls.inAir = true
         }
       } else {
@@ -82,6 +89,12 @@ export default class Player {
 
       this.mesh.moveWithCollisions(this.velocity)
       this.prevTime = time;
+
+
+
+      if (this.statistics.hp <= 0) {
+        window.location.reload()
+      }
     }
   }
 
@@ -92,6 +105,12 @@ export default class Player {
   }
 
 
+  getStat(key) {
+    if (this.statistics.hasOwnProperty(key)) {
+      return this.statistics[key]
+    }
+  }
+
   render(scene) {
     return new Promise((res) => {
       BABYLON.SceneLoader.ImportMesh(null, "/public/models/male_adventurer/", "scene.gltf", scene, (meshes, particleSystems, skeletons) => {
@@ -99,19 +118,19 @@ export default class Player {
         this.mesh.position.y = 200
         this.mesh.ellipsoid = new BABYLON.Vector3(0.5, 1.25, 0.5);
         //this.mesh.ellipsoidOffset = new BABYLON.Vector3(0, 1.8, 0);
-        let material = new BABYLON.StandardMaterial('playerMaterial', scene);
-        material.alpha = 1;
-        material.diffuseColor = new BABYLON.Color3(1.0, 0.2, 0.7);
-        var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameterX:this.mesh.ellipsoid.x, diameterY: this.mesh.ellipsoid.y, diameterZ: this.mesh.ellipsoid.z}, scene);
-        sphere.position = new BABYLON.Vector3(0, 200, 0);
-        this.mesh.addChild(sphere)
-        sphere.material = material
+        // let material = new BABYLON.StandardMaterial('playerMaterial', scene);
+        // material.alpha = 1;
+        // material.diffuseColor = new BABYLON.Color3(1.0, 0.2, 0.7);
+        // var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameterX:this.mesh.ellipsoid.x, diameterY: this.mesh.ellipsoid.y, diameterZ: this.mesh.ellipsoid.z}, scene);
+        // sphere.position = new BABYLON.Vector3(0, 200, 0);
+        // this.mesh.addChild(sphere)
+        // sphere.material = material
         //if u want to draw ellipsoid to see it
 
         this.mesh.onCollideObservable.add(() => {
           this.utils.getAnimationByName('air').stop()
           this.controls.inAir = false
-          this.velocity.y = -1
+          this.velocity.y = 0
         })
 
         res(this.mesh)
