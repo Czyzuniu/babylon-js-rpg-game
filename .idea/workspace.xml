@@ -4,26 +4,6 @@
     <list default="true" id="7418a3f8-51f8-4deb-85a5-290628feb870" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/WoodCabinDif.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/WoodCabinNM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/WoodCabinSM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/WoodenCabinObj.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/WoodenCabinObj.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/grasslight-big.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/lumberJack.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/lumberJack.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/lumberJack_diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/lumberJack_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/teststl.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world1.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world1.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world2.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world2.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world3.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/world3.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -129,12 +109,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1967" />
+          <entry key="js" value="2009" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1967" />
+          <entry key="JavaScript" value="2009" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -158,8 +138,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="117" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="131">
+              <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/models/Canyon1.obj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -167,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
-              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -179,8 +171,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="28" />
+            <state relative-caret-position="255">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -188,7 +180,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
+            <state relative-caret-position="660">
               <caret line="44" selection-start-line="44" selection-end-line="44" />
             </state>
           </provider>
@@ -197,8 +189,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+            <state relative-caret-position="348">
+              <caret line="87" column="55" selection-start-line="87" selection-start-column="51" selection-end-line="87" selection-end-column="55" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -209,8 +201,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="285">
+              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -218,7 +210,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="345">
               <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
@@ -227,8 +219,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/babylonjs/babylon.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="2281" column="11" selection-start-line="2281" selection-start-column="11" selection-end-line="2281" selection-end-column="11" />
+            <state relative-caret-position="270120">
+              <caret line="18008" column="13" selection-start-line="18008" selection-start-column="13" selection-end-line="18008" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -254,7 +246,6 @@
       <find>music</find>
       <find>play</find>
       <find>offs</find>
-      <find>camera</find>
       <find>this.animationGroups</find>
       <find>Ut</find>
       <find>setAni</find>
@@ -267,6 +258,7 @@
       <find>Down</find>
       <find>jpg</find>
       <find>initializeGui</find>
+      <find>camera</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -319,34 +311,47 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="babylon-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="babylon-game" type="462c0819:PsiDirectoryNode" />
+              <item name="babylon-js-rpg-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="babylon-js-rpg-game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="babylon-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="babylon-game" type="462c0819:PsiDirectoryNode" />
+              <item name="babylon-js-rpg-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="babylon-js-rpg-game" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="babylon-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="babylon-game" type="462c0819:PsiDirectoryNode" />
+              <item name="babylon-js-rpg-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="babylon-js-rpg-game" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="babylon-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="babylon-game" type="462c0819:PsiDirectoryNode" />
+              <item name="babylon-js-rpg-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="babylon-js-rpg-game" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="wolf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="babylon-js-rpg-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="babylon-js-rpg-game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="babylon-js-rpg-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="babylon-js-rpg-game" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Game.ts" type="620a8d5e:NestingTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -392,13 +397,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79061000" />
+    <option name="totallyTimeSpent" value="79425000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="822" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24920969" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -467,20 +472,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/models/textures/lumberJack_normal.png" />
     <entry file="file://$PROJECT_DIR$/public/models/textures/lumberJack_diffuse.png" />
-    <entry file="file://$PROJECT_DIR$/public/models/lumberJack.obj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="3" selection-start-line="2" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/lumberJack.mtl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/models/lumberJack.obj" />
+    <entry file="file://$PROJECT_DIR$/public/models/lumberJack.mtl" />
     <entry file="file://$PROJECT_DIR$/public/models/mountains2.mtl" />
     <entry file="file://$PROJECT_DIR$/public/models/mountains2.obj" />
     <entry file="file://$PROJECT_DIR$/public/models/Player-complete-walk.log" />
@@ -499,59 +492,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/world.mtl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/models/world.mtl" />
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
+        <state relative-caret-position="660">
           <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="285">
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="345">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/world1.mtl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/models/world3.obj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-241476">
-          <caret column="27" selection-start-column="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/models/world1.mtl" />
+    <entry file="file://$PROJECT_DIR$/public/models/world3.obj" />
     <entry file="file://$PROJECT_DIR$/node_modules/babylonjs/babylon.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="2281" column="11" selection-start-line="2281" selection-start-column="11" selection-end-line="2281" selection-end-column="11" />
+        <state relative-caret-position="270120">
+          <caret line="18008" column="13" selection-start-line="18008" selection-start-column="13" selection-end-line="18008" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -560,22 +535,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="255">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="131">
+          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        <state relative-caret-position="348">
+          <caret line="87" column="55" selection-start-line="87" selection-start-column="51" selection-end-line="87" selection-end-column="55" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>

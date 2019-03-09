@@ -56,6 +56,7 @@ export default class Player {
         this.playAnimation('run', true)
         this.controls.isMoving = true
       } else {
+        this.controls.isMoving = false
         this.utils.getAnimationByName('run').stop()
       }
       if (this.controls["83"]) {
@@ -64,6 +65,7 @@ export default class Player {
         this.controls.isMoving = true
       } else {
         this.utils.getAnimationByName('walk_back').stop()
+        this.controls.isMoving = false
       }
       if (this.controls["68"]) {
         this.mesh.rotate(BABYLON.Axis.Y,0.01, BABYLON.Space.WORLD);
@@ -74,7 +76,7 @@ export default class Player {
 
       if (!this.controls.inAir) {
         if (this.controls["32"]) {
-          this.velocity.y = 15 * delta
+          this.velocity.y = 0.35
           this.statistics.hp -= 5
           this.controls.inAir = true
         }
@@ -82,7 +84,7 @@ export default class Player {
         this.utils.getAnimationByName('air').play(true)
       }
 
-      if (!this.controls.isMoving) {
+      if (!this.controls.isMoving && !this.controls.inAir) {
         this.utils.getAnimationByName('idle').play(true)
       }
 
@@ -93,7 +95,7 @@ export default class Player {
 
 
       if (this.statistics.hp <= 0) {
-        window.location.reload()
+        //window.location.reload()
       }
     }
   }
