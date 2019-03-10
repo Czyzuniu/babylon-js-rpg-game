@@ -54,8 +54,6 @@ export default class Player {
         rotation = this.mesh.rotationQuaternion.toEulerAngles();
       }
 
-
-
       if (this.controls["87"]) {
         this.moveVector = new BABYLON.Vector3(-parseFloat(Math.sin(rotation.y)) / this.moveSpeed * 100.0 * delta, 0, -parseFloat(Math.cos(rotation.y)) / this.moveSpeed * 100.0 * delta)
         this.mesh.moveWithCollisions(this.moveVector)
@@ -147,3 +145,14 @@ export default class Player {
 
 
 }
+
+
+// var ray = new BABYLON.Ray(origin, down, length);
+// var hit = scene.pickWithRay(ray);
+// if (hit.pickedMesh){
+//   if (hit.distance > box.scaling.y+padding) {
+//     console.log(box.scaling.y+", "+hit.distance);
+//   } else {
+//     console.log("TOUCHING");
+//   }
+// }

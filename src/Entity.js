@@ -6,18 +6,26 @@ export default class Entity {
     this.scene = scene
     this.modelPath = modelPath
     this.modelName = modelName
+    this.mesh = null
+    this.moveVector = new BABYLON.Vector3(0,this.scene.gravity.y,0)
+    this.moveSpeed = 5
   }
 
-  move() {
+  update() {
 
+    // let time = performance.now();
+    // // Create a delta value based on current time
+    // let delta = ( time - this.prevTime ) / 1000;
+
+  }
+
+
+  calculateEllipsoid() {
+    this.mesh.ellipsoid = new BABYLON.Vector3(15, 3, 15);
   }
 
   render() {
-    return new Promise((resolve) => {
-      BABYLON.SceneLoader.ImportMesh(null,this.modelPath, this.modelName,this.scene, (meshes, particleSystems, skeletons) => {
-        resolve(meshes)
-      })
-    })
+
   }
 
 

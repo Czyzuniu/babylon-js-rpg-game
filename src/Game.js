@@ -4,6 +4,7 @@ import 'babylonjs-loaders';
 import * as GUI from 'babylonjs-gui';
 import Player from './Player.js'
 import Entity from "./Entity";
+import Wolf from "./Wolf";
 
 export default class Game {
   constructor( canvasId ) {
@@ -14,9 +15,10 @@ export default class Game {
     this.light = {};
     this.map = {} //controls map
     this.loaded = false
-    this.GUIControls = {
+    this.GUIControls = {}
 
-    }
+
+    this.gameMobs = []
   }
 
   createScene() {
@@ -49,12 +51,12 @@ export default class Game {
     // Optimizer
     const optimizer = new BABYLON.SceneOptimizer(this.scene, options);
 
-    this.wolf = new Entity(this.scene, "/public/models/wolf/", "wolf.obj")
-
-    this.wolf.render().then((meshes) => {
-      // meshes.position.y = 200
-      console.log('wolf loaded', meshes)
-    })
+    for (let i = 0; i < 5; i++) {
+      let wolf = new Wolf(this.scene, "/public/models/wolf/", "wolf.obj")
+      wolf.render().then((res) => {
+        this.gameMobs.push(wolf)
+      })
+    }
 
 
     let camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0,0,0), this.scene);
@@ -129,6 +131,9 @@ export default class Game {
       this.player.move()
       this.updateGui()
       this.scene.render();
+      for (let i of this.gameMobs) {
+        i.update()
+      }
     });
 
     // The canvas/window resize event handler.
