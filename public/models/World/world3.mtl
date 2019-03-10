@@ -1,5 +1,5 @@
 # Blender MTL File: 'happy_forest.blend'
-# Material Count: 8
+# Material Count: 9
 
 newmtl Almaz
 Ns 94.117647
@@ -64,17 +64,27 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd tileable-img_0062-dark.png
 
 newmtl mountain
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
-Kd 0.640000 0.422045 0.084831
+Kd 0.800000 0.419210 0.005340
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
+
+newmtl road
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.069706 0.028010 0.018364
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd path_texture.jpg
 
 newmtl wire_153228184
 Ns 96.078431

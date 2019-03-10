@@ -18,13 +18,14 @@ export default class Player {
       this.controls[evt.sourceEvent.keyCode] = evt.sourceEvent.type === "keydown";
     }));
 
-    this.moveSpeed = 10
+    this.moveSpeed = 7.5
     this.velocity = new BABYLON.Vector3(0,0,0)
+    this.moveVector = new BABYLON.Vector3(0,0,0)
     this.prevTime = performance.now();
 
 
     this.utils = new Utils(scene)
-
+    this.startPos = new BABYLON.Vector3(0,0,0)
 
     this.statistics = {
       hp:100,
@@ -35,6 +36,8 @@ export default class Player {
 
   move() {
     if (this.mesh) {
+
+      this.startPos.copyFrom(this.mesh.position)
 
       let time = performance.now();
       // Create a delta value based on current time
@@ -51,8 +54,11 @@ export default class Player {
         rotation = this.mesh.rotationQuaternion.toEulerAngles();
       }
 
+
+
       if (this.controls["87"]) {
-        this.mesh.moveWithCollisions(new BABYLON.Vector3(-parseFloat(Math.sin(rotation.y)) / this.moveSpeed, 0, -parseFloat(Math.cos(rotation.y)) / this.moveSpeed))
+        this.moveVector = new BABYLON.Vector3(-parseFloat(Math.sin(rotation.y)) / this.moveSpeed * 100.0 * delta, 0, -parseFloat(Math.cos(rotation.y)) / this.moveSpeed * 100.0 * delta)
+        this.mesh.moveWithCollisions(this.moveVector)
         this.playAnimation('run', true)
         this.controls.isMoving = true
       } else {
@@ -60,7 +66,8 @@ export default class Player {
         this.utils.getAnimationByName('run').stop()
       }
       if (this.controls["83"]) {
-        this.mesh.moveWithCollisions(new BABYLON.Vector3(-parseFloat(Math.sin(rotation.y)) / -this.moveSpeed / 3, 0, -parseFloat(Math.cos(rotation.y)) / -this.moveSpeed / 3))
+        this.moveVector = new BABYLON.Vector3(-parseFloat(Math.sin(rotation.y)) / -this.moveSpeed / 3, 0, -parseFloat(Math.cos(rotation.y)) / -this.moveSpeed / 3)
+        this.mesh.moveWithCollisions(this.moveVector)
         this.playAnimation('walk_back', true)
         this.controls.isMoving = true
       } else {
@@ -76,7 +83,7 @@ export default class Player {
 
       if (!this.controls.inAir) {
         if (this.controls["32"]) {
-          this.velocity.y = 0.35
+          this.velocity.y = 0.25
           this.statistics.hp -= 5
           this.controls.inAir = true
         }
@@ -91,8 +98,6 @@ export default class Player {
 
       this.mesh.moveWithCollisions(this.velocity)
       this.prevTime = time;
-
-
 
       if (this.statistics.hp <= 0) {
         //window.location.reload()
@@ -129,7 +134,7 @@ export default class Player {
         // sphere.material = material
         //if u want to draw ellipsoid to see it
 
-        this.mesh.onCollideObservable.add(() => {
+        this.mesh.onCollideObservable.add((e) => {
           this.utils.getAnimationByName('air').stop()
           this.controls.inAir = false
           this.velocity.y = 0

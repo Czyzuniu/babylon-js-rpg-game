@@ -33,10 +33,15 @@ export default class Game {
     BABYLON.SceneLoader.ImportMesh(null, "/public/models/World/","world3.obj", this.scene, (newMeshes, particleSystems, skeletons) => {
       newMeshes.map((mesh) => {
         mesh.checkCollisions = true;
-        // mesh.showBoundingBox = true
+        if (mesh.name === 'Grid') {
+          mesh.receiveShadows = true;
+        } else {
+          shadowGenerator.getShadowMap().renderList.push(mesh);
+        }
       })
     })
 
+    var shadowGenerator = new BABYLON.ShadowGenerator(1024, light0);
 
     const options = new BABYLON.SceneOptimizerOptions();
     options.addOptimization(new BABYLON.HardwareScalingOptimization(0, 1));
@@ -66,7 +71,7 @@ export default class Game {
       this.loaded = true
     })
     this.scene.collisionsEnabled = true;
-    //let music = new BABYLON.Sound("Music", "/public/sounds/nature_theme1.mp3", this.scene, null, { loop: true, autoplay: true });
+    let music = new BABYLON.Sound("Music", "/public/sounds/forest.mp3", this.scene, null, { loop: true, autoplay: true });
 
     this.createSkyBox()
 
